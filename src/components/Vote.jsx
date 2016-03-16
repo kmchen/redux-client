@@ -7,7 +7,7 @@ export default React.createClass({
   isDisabled: function(){
     return !!this.props.hasVoted;             
   },
-  hasVotedFor: function(){
+  hasVotedFor: function(entry){
     return this.props.hasVoted === entry;              
   },
   render: function(){

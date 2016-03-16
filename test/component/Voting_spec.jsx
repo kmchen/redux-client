@@ -28,4 +28,18 @@ describe('Voting', () => {
     Simulate.click(buttons[0])
     expect(value).to.equal('movie one');
   });
+  it('check button NOT disabled', () => {
+    const component = renderIntoDocument(<Voting pair={['movie one', 'movie two']} />);
+    const buttons = scryRenderedDOMComponentsWithTag(component, 'button');
+    expect(buttons.length).to.equal(2);
+    expect(buttons[0].disabled).to.equal(false);
+    expect(buttons[1].disabled).to.equal(false);
+  });
+  it('check disabled button', () => {
+    const component = renderIntoDocument(<Voting pair={['movie one', 'movie two']} hasVoted={'movie one'}/>);
+    const buttons = scryRenderedDOMComponentsWithTag(component, 'button');
+    expect(buttons.length).to.equal(2);
+    expect(buttons[0].disabled).to.equal(true);
+    expect(buttons[1].disabled).to.equal(true);
+  });
 });
