@@ -10,9 +10,6 @@ import {expect} from 'chai'
 
 describe('Voting', () => {
   it('renders a pair of buttons', () => {
-
-    //let callBack = (entry) => {};
-
     const component = renderIntoDocument(
       <Voting pair={['movie one', 'movie two']} />
     );
