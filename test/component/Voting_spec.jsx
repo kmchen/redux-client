@@ -35,11 +35,22 @@ describe('Voting', () => {
     expect(buttons[0].disabled).to.equal(false);
     expect(buttons[1].disabled).to.equal(false);
   });
-  it('check disabled button', () => {
+  it('check disabled and labeled button', () => {
     const component = renderIntoDocument(<Voting pair={['movie one', 'movie two']} hasVoted={'movie one'}/>);
     const buttons = scryRenderedDOMComponentsWithTag(component, 'button');
     expect(buttons.length).to.equal(2);
+    // Check disability
     expect(buttons[0].disabled).to.equal(true);
     expect(buttons[1].disabled).to.equal(true);
+    // Check labeled button
+    expect(buttons[0].textContent).to.contain('Voted');
+  });
+  it('check winner', () => {
+    const component = renderIntoDocument(<Voting winner={['movie one']}/>);
+    const buttons = scryRenderedDOMComponentsWithTag(component, 'button');
+    const winner = ReactDom.findDOMNode(component.refs.winner);
+    expect(buttons.length).to.equal(0);
+    expect(winner).to.be.ok;
+    expect(winner.textContent).to.contain('Winner is movie one');
   });
 });
