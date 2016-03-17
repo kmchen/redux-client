@@ -1,12 +1,18 @@
-import React from 'react';
+import React    from 'react';
 import ReactDOM from 'react-dom';
-import Voting from './components/Voting';
+import {Route, Router, hashHistory}  from 'react-router'
 
-const pair = ['movie one', 'movie two'];
+import Voting   from './components/Voting';
+import Results  from './components/Results';
+import App      from './components/App';
 
 const winner = 'movie two';
+const routes = <Route component={App}>
+  <Route path='/' component={Voting}></Route>
+  <Route path='/results' component={Results}></Route>
+  </Route>;
 
 ReactDOM.render(
-    <Voting pair={pair} winner={winner} hasVoted='movie one'/>,
+    <Router history={hashHistory}>{routes}</Router>, 
     document.getElementById('app')
-);
+    );
