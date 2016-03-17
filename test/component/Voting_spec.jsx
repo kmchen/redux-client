@@ -57,22 +57,24 @@ describe('Voting', () => {
   it('renders as a pure component', () => {
     const pair = ['movie one', 'movie two'];
     const container = document.createElement('div');
-    const component = ReactDom.render(<Voting pair={pair} />, container);
-    const firstButton = scryRenderedDOMComponentsWithTag(component, 'button')[0]
-    pair[0] = 'movie three';
-    expect(firstButton.textContent).to.equal('movie one')
-  });
-  it('Update DOM when props changes', () => {
-    const pair = ['movie one', 'movie two'];
-    const container = document.createElement('div');
     let component = ReactDom.render(<Voting pair={pair} />, container);
     let firstButton = scryRenderedDOMComponentsWithTag(component, 'button')[0]
-    pair[0] = 'movie three';
     expect(firstButton.textContent).to.equal('movie one')
-    // Update props with new data
-    let newPair = List.of('movie three', 'movie four');
-    component = ReactDom.render(<Voting pair={newPair} />, container);
-    firstButton = scryRenderedDOMComponentsWithTag(component, 'button')[0]
-    expect(firstButton.textContent).to.equal('movie three')
+    pair[0] = 'movie three';
+    component = ReactDom.render(<Voting pair={pair} />, container);
+    expect(firstButton.textContent).to.equal('movie one')
   });
+  //it('Update DOM when props change', () => {
+    //const pair = List.of('movie one', 'movie two');
+    //const container = document.createElement('div');
+    //let component = ReactDom.render(<Voting pair={pair} />, container);
+    //let firstButton = scryRenderedDOMComponentsWithTag(component, 'button')[0]
+    //expect(firstButton.textContent).to.equal('movie one')
+
+    //// Update DOM when props changes
+    //let newPair = pair.set(0, 'movie three');
+    //component = ReactDom.render(<Voting pair={newPair} />, container);
+    //firstButton = scryRenderedDOMComponentsWithTag(component, 'button')[0]
+    //expect(firstButton.textContent).to.equal('movie three')
+  //});
 });
