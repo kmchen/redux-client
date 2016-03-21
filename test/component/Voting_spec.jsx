@@ -64,17 +64,4 @@ describe('Voting', () => {
     component = ReactDom.render(<Voting pair={pair} />, container);
     expect(firstButton.textContent).to.equal('movie one')
   });
-  //it('Update DOM when props change', () => {
-    //const pair = List.of('movie one', 'movie two');
-    //const container = document.createElement('div');
-    //let component = ReactDom.render(<Voting pair={pair} />, container);
-    //let firstButton = scryRenderedDOMComponentsWithTag(component, 'button')[0]
-    //expect(firstButton.textContent).to.equal('movie one')
-
-    //// Update DOM when props changes
-    //let newPair = pair.set(0, 'movie three');
-    //component = ReactDom.render(<Voting pair={newPair} />, container);
-    //firstButton = scryRenderedDOMComponentsWithTag(component, 'button')[0]
-    //expect(firstButton.textContent).to.equal('movie three')
-  //});
 });
