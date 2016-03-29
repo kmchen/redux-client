@@ -7,6 +7,7 @@ import {renderIntoDocument,
 } from 'react-addons-test-utils';
 
 import Results   from '../../src/components/Results'
+import Winner   from '../../src/components/Winner'
 import {expect} from 'chai'
 
 describe('Result', () => {
@@ -32,5 +33,14 @@ describe('Result', () => {
       );
     Simulate.click(ReactDom.findDOMNode(component.refs.next));
     expect(nextInvoked).to.equal(true);
+  });
+  it('displays winner', () => {
+    let winner = 'movie one'; 
+    const component = renderIntoDocument(
+      <Results winner={winner} pair={['movie one', 'movie two']} tally={Map()}/>
+      );
+    const theWinner = ReactDom.findDOMNode(component.refs.winner)
+    expect(theWinner).to.be.ok;
+    expect(theWinner.textContent).to.contain('movie one');
   });
 });
