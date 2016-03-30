@@ -6,7 +6,7 @@ import {renderIntoDocument,
         Simulate
 } from 'react-addons-test-utils';
 
-import Results   from '../../src/components/Results'
+import {Results}   from '../../src/components/Results'
 import Winner   from '../../src/components/Winner'
 import {expect} from 'chai'
 
