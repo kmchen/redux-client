@@ -4,6 +4,7 @@ import {Route, Router, hashHistory}  from 'react-router'
 import {createStore}  from 'redux';
 import reducer  from './reducer';
 import {Provider} from 'react-redux';
+import io from 'socket.io-client';
 
 import {VotingContainer}   from './components/Voting';
 import {ResultsContainer}  from './components/Results';
@@ -20,7 +21,8 @@ store.dispatch({
   }
 });
 
-const winner = 'movie two';
+const socket = io(`${location.protocol}//${location.hostname}:8090`);
+
 const routes = <Route component={App}>
   <Route path='/' component={VotingContainer}></Route>
   <Route path='/results' component={ResultsContainer}></Route>
