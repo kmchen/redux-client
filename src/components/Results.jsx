@@ -45,4 +45,4 @@ function mapStateToProps(state){
   };
 }
 
-export const ResultContainer = connect(mapStateToProps)(Results);
+export const ResultsContainer = connect(mapStateToProps)(Results);
