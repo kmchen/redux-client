@@ -4,6 +4,7 @@ import {connect}        from 'react-redux';
 
 import Winner from './Winner';
 import Vote from './Vote';
+import * as actionCreators from '../action_creator';
 
 export const Voting = React.createClass({
   mixins: [PureRenderMixin],
@@ -21,8 +22,8 @@ function mapStateToProps(state){
   return {
     pair: state.getIn(['vote', 'pair']),
     winner: state.get('winner'),
-    winner: state.get('hasVoted')
+    hasVoted: state.get('hasVoted')
   };
 }
 
-export const VotingContainer = connect(mapStateToProps)(Voting);
+export const VotingContainer = connect(mapStateToProps, actionCreators)(Voting);

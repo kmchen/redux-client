@@ -28,10 +28,19 @@ function vote(state, entry){
   return state;
 }
 
+function resetVote(state){
+  const hasVoted = state.get('hasVoted');
+  const currentPair = state.getIn(['vote', 'pair'], List());
+  if (hasVoted && !currentPair.includes(hasVoted)) {
+    return state.remove('hasVoted');
+  }
+  return state
+}
+
 export default function reducer(state = Map(), action) {
   switch(action.type) {
     case 'SET_STATE' :
-      return removeHasVoted(setState(state, action.state))
+      return resetVote(setState(state, action.state))
     case 'VOTE' :
       return vote(state, action.entry)
   }

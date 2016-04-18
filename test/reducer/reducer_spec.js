@@ -115,26 +115,5 @@ describe('Reducer', () => {
       }
     }));
   });
-  //it('remove hasVoted as SET_STATE with if pair changes', () => {
-    //const state = fromJS({
-      //vote: {
-        //pair: ['movie one', 'movie two'],
-        //tally: {'movie one': 1}
-      //},
-      //hasVoted: 'movie one'
-    //});
-    //const newState = fromJS({
-        //vote: {
-          //pair: ['movie three', 'movie four']
-        //}
-    //});
-    //const action = {type: 'SET_STATE', state : newState};
-    //const nextState = Reducer(state, action);
-    //expect(nextState).to.equal(fromJS({
-      //vote: {
-        //pair: ['movie three', 'movie four']
-      //}
-    //}));
-  //});
 });
 
