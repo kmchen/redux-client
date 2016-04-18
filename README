@@ -1,0 +1,11 @@
+REFERENCE
+---------
+http://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html#ending-the-vote
+
+RUINNING TEST
+-------------
+npm run test
+
+Run SERVER
+-------------
+webpack-dev-server
