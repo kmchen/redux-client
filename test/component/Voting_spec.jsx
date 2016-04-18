@@ -23,7 +23,7 @@ describe('Voting', () => {
     let value
     let onClick = (entry) => value = entry;
     const component = renderIntoDocument(
-      <Voting pair={['movie one', 'movie two']} onClick={onClick}/>
+      <Voting pair={['movie one', 'movie two']} vote={onClick}/>
     );
     const buttons = scryRenderedDOMComponentsWithTag(component, 'button');
     Simulate.click(buttons[0])
